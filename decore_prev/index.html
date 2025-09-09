@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Decore</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+
+  <style>
+    @font-face {
+      font-family: "InstrumentSerifItalic";
+      src: url("./fonts/InstrumentSerif-Regular.ttf") format("truetype");
+      font-style: italic;
+      font-weight: 400;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box
+    }
+
+    :root {
+      --decore-pink: hsl(310 30% 60%);
+      --decore-yellow: hsl(53 41% 55%);
+      --decore-green: hsl(88 14% 39%);
+      --decore-cream: hsl(60 8% 85%);
+      --text-cream: hsl(45 30% 95%);
+      --text-dark: hsl(0 0% 20%);
+    }
+
+    html,
+    body {
+      height: 100%;
+      overflow-x: hidden;
+    }
+
+    body {
+      margin: 0;
+      color: var(--text-dark);
+      background: #fff;
+      font-family: "InstrumentSerifItalic", serif;
+      overflow-x: hidden;
+    }
+
+    footer {
+      padding: 0 50px;
+    }
+
+    /* ===== Contenitore a piena larghezza ===== */
+    .page-container {
+      width: 100%;
+      margin: 0;
+      position: relative;
+    }
+
+    /* ===== Tipografia più grande e fluida ===== */
+    p {
+      margin: 0;
+      font-size: clamp(2rem, 8vw, 15rem);
+      line-height: 0.9;
+    }
+
+    /* ===== Sezioni colorate ===== */
+    .bg-decore-pink {
+      background: var(--decore-pink);
+    }
+
+    .bg-decore-yellow {
+      background: var(--decore-yellow);
+    }
+
+    .bg-decore-green {
+      background: var(--decore-green);
+    }
+
+    .header-section,
+    .date-section,
+    .form-section {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      isolation: isolate;
+      padding-block: clamp(2rem, 7vh, 6rem);
+    }
+
+    /* ===== Logo e testi ===== */
+    .header-section img.logo {
+      width: clamp(150px, 22vw, 720px);
+      height: auto;
+      margin-bottom: clamp(1rem, 3vh, 2rem);
+      z-index: 2;
+    }
+
+    .header-section p,
+    .date-section p {
+      color: var(--decore-cream);
+      max-width: min(20ch, 92%);
+      z-index: 2;
+      padding: 5vw 0;
+    }
+
+    .form-section p {
+      color: var(--decore-cream);
+      font-size: clamp(1.6rem, 4.5vw, 5rem);
+      max-width: min(20ch, 92%);
+      z-index: 2;
+    }
+
+    /* ===== Icone ===== */
+    .absolute {
+      position: absolute;
+      z-index: 1;
+    }
+
+    /* Rosa */
+    .farfalla-position {
+      width: clamp(150px, 27vw, 400px);
+      top: 100px;
+      right: -30px;
+    }
+
+    .pizza-position {
+      width: clamp(180px, 35vw, 500px);
+      left: 0;
+      top: 80%;
+    }
+
+    .cuore-position {
+      width: clamp(280px, 45vw, 700px);
+      left: 45%;
+      top: 70%;
+      transform: rotate(25deg);
+    }
+
+    /* Gialla */
+    .rigatone-position {
+      width: clamp(300px, 48vw, 700px);
+      right: -15%;
+      top: 35%
+    }
+
+    /* Verde */
+    .posate-position {
+      width: clamp(200px, 38vw, 600px);
+      left: -5%;
+      top: -2%;
+      transform: rotate(-15deg);
+    }
+
+    .bottiglia-position {
+      width: clamp(300px, 48vw, 700px);
+      right: 0%;
+      bottom: clamp(20px, 6vh, 60px);
+    }
+
+    /* ===== Form ===== */
+    .form-section iframe {
+      width: 100%;
+      min-height: clamp(680px, 130vh, 1500px);
+      border: 0;
+      margin-top: clamp(1rem, 3vh, 2rem);
+      z-index: 2;
+    }
+
+    /* ===== Footer ===== */
+    footer {
+      background: var(--text-cream);
+      color: var(--text-dark);
+    }
+
+    .footer-section {
+      display: block;
+      text-align: center;
+      padding: clamp(1rem, 2.5vh, 1.25rem) 0;
+    }
+
+    footer img {
+      width: clamp(140px, 16vw, 240px);
+      height: auto;
+    }
+
+    footer address {
+      font-style: normal;
+      font-size: clamp(.8rem, 1.4vw, 2rem);
+      text-align: center;
+    }
+
+    footer a {
+      color: var(--text-dark);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      color: var(--decore-pink);
+    }
+
+    @media (min-width: 575px) {
+      .form-section iframe {
+        min-height: clamp(680px, 100vh, 1300px);
+      }
+
+      .footer-section {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        text-align: left;
+      }
+
+      footer address {
+        text-align: right;
+      }
+    }
+
+    @media (min-width: 768px) {
+
+      /* ===== Icone ===== */
+      /* Rosa */
+      .farfalla-position {
+        width: clamp(150px, 27vw, 400px);
+        top: 120px;
+        right: -40px;
+      }
+
+      .pizza-position {
+        width: clamp(140px, 35vw, 500px);
+        left: 6%;
+        top: 80%;
+      }
+
+      .cuore-position {
+        width: clamp(140px, 45vw, 700px);
+        left: 60%;
+        top: 70%;
+        transform: rotate(25deg);
+      }
+
+      /* Gialla */
+      .rigatone-position {
+        width: clamp(200px, 48vw, 700px);
+        right: 0px;
+        top: 40%
+      }
+
+      /* Verde */
+      .posate-position {
+        width: clamp(200px, 38vw, 600px);
+        left: 0%;
+        top: -10%;
+        transform: rotate(-15deg);
+      }
+
+      .bottiglia-position {
+        width: clamp(200px, 48vw, 700px);
+        right: 0%;
+        bottom: clamp(20px, 6vh, 60px);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header Rosa -->
+  <div class="bg-decore-pink">
+    <div class="header-section page-container">
+
+      <img class="absolute farfalla-position" src="./icons/farfalla_pasta.svg" alt="">
+
+      <img class="absolute pizza-position" src="./icons/pizza.svg" alt="">
+
+      <img class="absolute cuore-position" src="./icons/cuore.svg" alt="">
+
+      <img src="./icons/logo_decore_primary.svg" alt="Decore" class="logo">
+
+      <p>Dimme che me pensi, ma fallo mentre magni 'na carbonara</p>
+
+    </div>
+  </div>
+
+  <!-- Sezione Gialla -->
+  <div class="bg-decore-yellow">
+    <div class="date-section page-container">
+
+      <img class="absolute rigatone-position" src="./icons/rigatone_pasta.svg" alt="">
+
+      <p>Il 19 Settembre ti batterà forte il cuore.</p>
+
+    </div>
+  </div>
+
+  <!-- Sezione Verde -->
+  <div class="bg-decore-green">
+    <div class="form-section page-container">
+
+      <img class="absolute posate-position" src="./icons/posate.svg" alt="">
+
+      <img class="absolute bottiglia-position" src="./icons/bottiglia.svg" alt="">
+
+      <p>Compila il form qui sotto per rimanere aggiornato e scoprire il perché!</p>
+
+      <iframe
+        src="https://9dca5b8b.sibforms.com/serve/MUIFAPSK7KqsZcXIH4nzAmtjvW8D4JcOsk0sPUUCzmmmPO8DQ90hUvyPqRQWvucsuA1leQjFCPc01Dq3LG6w0Yqwav75VscTzdFuORPP9iRUw-dCGI-npf_G8FrkyVqbKl4ZMQKZyvAYxG3a4RnyVgEYnO4cjmeWtzbvV7iEP0Ys-2059vkooXmYH8kEX9q1tFrxWFU-m1XBXwyE"></iframe>
+
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="page-container footer-section">
+
+      <img src="./icons/decore_black.png" alt="Decore">
+
+      <address>
+        Via Appia Nuova, 328 – Roma · Metro A – Ponte Lungo <br>
+        <a href="mailto:magnadecore@gmail.com">magnadecore@gmail.com</a> ·
+        <a href="tel:+390634267123">06&nbsp;3426&nbsp;71230</a> ·
+        <a href="tel:+393515477078">351&nbsp;547&nbsp;7078</a><br>
+        powered by <a href="https://codelab.site/" target="_blank"><img src="./icons/codelab-icon.png" alt="CodeLab"
+            style="width:16px;height:16px;vertical-align:middle"> CodeLab</a>
+      </address>
+
+    </div>
+  </footer>
+</body>
+
+</html>
